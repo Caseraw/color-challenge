@@ -1,0 +1,7 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: color-game-challenge
+  labels:
+    kubernetes.io/metadata.name: color-game-challenge

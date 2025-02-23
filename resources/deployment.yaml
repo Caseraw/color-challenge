@@ -1,0 +1,47 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: color-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: color-app
+  template:
+    metadata:
+      labels:
+        app: color-app
+    spec:
+      containers:
+      - name: color-app
+        image: registry.redhat.io/rhel9/httpd-24:latest
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: page
+          mountPath: /var/www/html/index.html
+          subPath: index.html
+        - name: bgcolor
+          mountPath: /var/www/html/js/bgcolor.js
+          subPath: bgcolor.js
+        - name: game-logic
+          mountPath: /var/www/html/js/game-logic.js
+          subPath: game-logic.js
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+      volumes:
+      - name: page
+        configMap:
+          name: page
+      - name: bgcolor
+        configMap:
+          name: bgcolor
+      - name: game-logic
+        configMap:
+          name: game-logic
