@@ -14,7 +14,7 @@ spec:
     - name: GIT_REVISION
       value: main
     - name: manifest_dir
-      value: pipeline
+      value: "."
   pipelineRef:
     name: color-game-challenge
   taskRunTemplate:
