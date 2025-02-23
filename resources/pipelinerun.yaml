@@ -1,0 +1,35 @@
+apiVersion: tekton.dev/v1
+kind: PipelineRun
+metadata:
+  name: color-game-challenge-cbgzfh
+  namespace: color-game-challenge
+  finalizers:
+    - chains.tekton.dev/pipelinerun
+  labels:
+    tekton.dev/pipeline: color-game-challenge
+spec:
+  params:
+    - name: GIT_REPO
+      value: 'https://github.com/Caseraw/color-challenge.git'
+    - name: GIT_REVISION
+      value: main
+  pipelineRef:
+    name: color-game-challenge
+  taskRunTemplate:
+    serviceAccountName: pipeline
+  timeouts:
+    pipeline: 1h0m0s
+  workspaces:
+    - name: workspace
+      volumeClaimTemplate:
+        metadata:
+          creationTimestamp: null
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 10Mi
+          storageClassName: gp3-csi
+          volumeMode: Filesystem
+        status: {}

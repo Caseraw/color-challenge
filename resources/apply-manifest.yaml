@@ -17,4 +17,4 @@ spec:
       command: ["/bin/bash", "-c"]
       args:
         - |-
-          oc apply -f $(inputs.params.manifest_dir)
+          oc apply -k $(inputs.params.manifest_dir)
