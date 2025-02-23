@@ -5,7 +5,7 @@ kind: Kustomization
 namespace: color-game-challenge
 
 resources:
-  - resources/namespace.yaml
+  # - resources/namespace.yaml
   - resources/configmap.yaml
   - resources/deployment.yaml
   - resources/service.yaml
