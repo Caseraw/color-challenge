@@ -32,6 +32,6 @@ spec:
       - name: source
         workspace: workspace
       runAfter: 
-      - build
+      - fetch-repository
   workspaces:
     - name: workspace
