@@ -1,0 +1,37 @@
+---
+apiVersion: tekton.dev/v1beta1
+kind: Pipeline
+metadata:
+  name: color-game-challenge
+spec:
+  params:
+    - default: https://github.com/redhat-developer-demos/qotd.git
+      name: GIT_REPO
+      type: string
+    - default: master
+      name: GIT_REVISION
+      type: string
+  tasks:
+    - name: fetch-repository
+      params:
+        - name: URL
+          value: $(params.GIT_REPO)
+        - name: REVISION
+          value: $(params.GIT_REVISION)
+        - name: DELETE_EXISTING
+          value: 'true'
+      taskRef:
+        name: git-clone
+      workspaces:
+        - name: output
+          workspace: workspace
+    - name: apply-manifests 
+      taskRef:
+        name: apply-manifests
+      workspaces:
+      - name: source
+        workspace: workspace
+      runAfter: 
+      - build
+  workspaces:
+    - name: workspace
