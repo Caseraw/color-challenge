@@ -5,12 +5,12 @@ kind: Kustomization
 namespace: color-game-challenge
 
 resources:
-  - resources/configmap.yaml
-  - resources/deployment.yaml
-  - resources/service.yaml
-  - resources/route.yaml
-  - resources/apply-manifest.yaml
-  - resources/buildah.yaml
-  - resources/git-clone.yaml
-  - resources/openshift-client.yaml
-  - resources/pipeline.yaml
+  - ../resources/configmap.yaml
+  - ../resources/deployment.yaml
+  - ../resources/service.yaml
+  - ../resources/route.yaml
+  - ../resources/apply-manifest.yaml
+  - ../resources/buildah.yaml
+  - ../resources/git-clone.yaml
+  - ../resources/openshift-client.yaml
+  - ../resources/pipeline.yaml
