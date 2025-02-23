@@ -8,7 +8,7 @@ spec:
     - default: https://github.com/Caseraw/color-challenge.git
       name: GIT_REPO
       type: string
-    - default: master
+    - default: main
       name: GIT_REVISION
       type: string
   tasks:
