@@ -25,7 +25,7 @@ spec:
 
   workspaces:
     - name: source
-      optional: false
+      # optional: false
       description: |
         Container build context, like for instnace a application source code
         followed by a `Dockerfile`.
