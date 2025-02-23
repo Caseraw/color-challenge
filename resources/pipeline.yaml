@@ -11,6 +11,9 @@ spec:
     - default: main
       name: GIT_REVISION
       type: string
+    - default: pipeline
+      name: manifest_dir
+      type: string
   tasks:
     - name: fetch-repository
       params:
@@ -19,13 +22,16 @@ spec:
         - name: REVISION
           value: $(params.GIT_REVISION)
         - name: DELETE_EXISTING
-          value: 'true'
+          value: "true"
       taskRef:
         name: git-clone
       workspaces:
         - name: output
           workspace: workspace
     - name: apply-manifests 
+      params:
+        - name: name: manifest_dir
+          value: $(params.manifest_dir)
       taskRef:
         name: apply-manifests
       workspaces:

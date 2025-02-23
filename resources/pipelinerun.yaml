@@ -13,6 +13,8 @@ spec:
       value: 'https://github.com/Caseraw/color-challenge.git'
     - name: GIT_REVISION
       value: main
+    - name: manifest_dir
+      value: pipeline
   pipelineRef:
     name: color-game-challenge
   taskRunTemplate:
