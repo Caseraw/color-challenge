@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: color-app
-        image: registry.redhat.io/rhel9/httpd-24:latest-oops
+        image: registry.redhat.io/rhel9/httpd-24:latest
         ports:
         - containerPort: 80
         volumeMounts:
